@@ -12,7 +12,7 @@ This code is licensed under the The MIT License (MIT). Please see the LICENSE fi
 
 ### On IFTTT
 
-1. Go to https://ifttt.com/maker and write down your secret key
+1. Go to [https://ifttt.com/maker](https://ifttt.com/maker) and write down your secret key
 
 ### On AWS
 
