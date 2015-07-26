@@ -16,13 +16,13 @@ This code is licensed under the The MIT License (MIT). Please see the LICENSE fi
 
 ### On AWS
 
-2. Create a new Amazon SNS topic, e.g. 'autoscaling'
+2. Create a new Amazon SNS topic, e.g. `autoscaling`
 3. Configure the Auto Scaling group to send notifications to the SNS topic created at the previous step
-4. Create a new AWS Lambda function, e.g. 'autoscaling-2-ifttt'
+4. Create a new AWS Lambda function, e.g. `autoscaling-2-ifttt`
   1. Use Node.js as runtime
-  2. Paste the code inline from the index.js file included in this repository
-  3. Replace the iftttMakerSecretKey with the one you wrote down at step 1
-  4. (Optional) Replace the iftttMakerBaseEventName with the one you want to use
+  2. Paste the code inline from the `index.js` file included in this repository
+  3. Replace the `iftttMakerSecretKey` with the one you wrote down at step 1
+  4. (Optional) Replace the `iftttMakerBaseEventName` with the one you want to use
   5. Leave the default handler
   6. Use a basic execution role
   7. Leave the default memory (128MB) and timeout (3s)
@@ -46,17 +46,17 @@ EC2_INSTANCE_TERMINATE_ERROR|Failed instance termination
 8. Choose Maker as Trigger ('this')
 9. Select Receive a Web Request
 10. Write the Event Name exacly as the concatenation of:
-  - the iftttMakerBaseEventName variable of the Lambda function (step 4.4 on AWS)
-  - the underscore character ('_')
+  - the `iftttMakerBaseEventName` variable of the Lambda function (step 4.4 on AWS)
+  - the underscore character (`_`)
   - the Auto Scaling group name
-  - the underscore character ('_')
+  - the underscore character (`_`)
   - the Notification type as in the table above (you can find [more info on Auto Scaling notifications here](http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASGettingNotifications.html?tag=duckduckgo-osx-20))
-  - for exaple, if you leave the default iftttMakerBaseEventName ('autoscaling'), to monitor new instance launches on an Auto Scaling group named 'web' the Event Name to use would be 'autoscaling_web_EC2_INSTANCE_LAUNCH'
+  - for exaple, if you leave the default `iftttMakerBaseEventName` ('autoscaling'), to monitor new instance launches on an Auto Scaling group named 'web' the Event Name to use would be `autoscaling_web_EC2_INSTANCE_LAUNCH`
 11. Select Create Trigger
-12. 'Value1' contains the Auto Scaling group name
-13. 'Value2' contains the Notification type as in the table above
+12. `Value1` contains the Auto Scaling group name
+13. `Value2` contains the Notification type as in the table above
 14. Choose whatever you want as Action ('that'), for example:
-  1. iOS or Android Notifications to receive it on your mobile (you need the IF app from IFTTT installed on the device), e.g. you can set the notification to 'Auto Scaling {{Value1}} {{Value2}}'
+  1. iOS or Android Notifications to receive it on your mobile (you need the IF app from IFTTT installed on the device), e.g. you can set the notification to `Auto Scaling {{Value1}} {{Value2}}`
   2. A Channel from the Connected Home category to have a *visible* effect, e.g. [Philips Hue](https://ifttt.com/hue) to change the color of your lights to green when scaling up, yellow when scaling down, red in case of errors
   3. Slack to send a message to your team
   4. Trello to create a new card
